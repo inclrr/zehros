@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zehroşum</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: #f8e5e5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        h1 {
+            color: #e74c3c;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+        .gift-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .gift {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 200px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .gift:hover {
+            transform: translateY(-5px);
+        }
+        .gift h3 {
+            color: #e74c3c;
+            margin-top: 0;
+        }
+        #finalButton {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+        }
+        #finalButton:hover {
+            background-color: #c0392b;
+        }
+        #finalImage {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 30px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Zehroşum</h1>
+    <div class="gift-container" id="gifts"></div>
+    <button id="finalButton">Son Sürpriz</button>
+    <img id="finalImage" src="son_fotograf.jpg" alt="Son fotoğraf">
+
+    <script>
+        const gifts = [
+            { name: "Bardak", description: "Bunu şunu düşünerek aldım, sen bir leopar kadar güçlü ve hırslısın ama içinde çiçek olacak kadar da kadınsın :)" },
+            { name: "Uyku Bandı", description: "Uykusuz gecelerine yardımcı olur umarım :)" },
+            { name: "Kıyafetler", description: "Bu eteği beğenmiştin, hem sen kullan hem rakibini tanı 🙃, atlet giymeyi de seviyorsun :)" },
+            { name: "Zeytin ve Gül", description: "Bonus gönül alma ve barışma :)" },
+            { name: "Not", description: "Sevdiğin tatlıdan da almıştım ama gözün rahatsız olunca veremedim" }
+        ];
+
+        const giftsContainer = document.getElementById('gifts');
+        gifts.forEach(gift => {
+            const giftElement = document.createElement('div');
+            giftElement.className = 'gift';
+            giftElement.innerHTML = `<h3>${gift.name}</h3>`;
+            giftElement.onclick = () => alert(gift.description);
+            giftsContainer.appendChild(giftElement);
+        });
+
+        const finalButton = document.getElementById('finalButton');
+        const finalImage = document.getElementById('finalImage');
+        
+        finalButton.onclick = () => {
+            if (finalImage.style.display === 'none') {
+                finalImage.style.display = 'block';
+                finalButton.textContent = 'Kapat';
+            } else {
+                finalImage.style.display = 'none';
+                finalButton.textContent = 'Son Sürpriz';
+            }
+        };
+    </script>
+</body>
+</html>
