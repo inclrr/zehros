@@ -61,10 +61,70 @@
             margin-top: 30px;
             display: none;
         }
+        .message-container {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 600px;
+        }
+        .message-title {
+            color: #e74c3c;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        .message-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #34495e;
+            text-align: left;
+        }
+        .message-highlight {
+            background-color: #ffeaa7;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .message-emoji {
+            font-size: 1.2em;
+            margin: 0 3px;
+        }
     </style>
 </head>
 <body>
     <h1>Zehroşum</h1>
+    
+    <div class="message-container">
+        <h2 class="message-title">Sevgili Zehroşum,</h2>
+        <p class="message-content">
+            Sana olan sevgimi ve özrümü bu küçük hediyelerle ifade etmek istedim. 
+            Her biri, aramızdaki özel bağı ve seni ne kadar önemsediğimi gösteriyor.
+        </p>
+        <p class="message-content">
+            <span class="message-highlight">Bardak</span>, senin gücünü ve zarafetini temsil ediyor. 
+            <span class="message-emoji">🐆🌸</span>
+        </p>
+        <p class="message-content">
+            <span class="message-highlight">Uyku bandı</span>, huzurlu uykular dilediğimin bir işareti. 
+            <span class="message-emoji">😴💤</span>
+        </p>
+        <p class="message-content">
+            <span class="message-highlight">Kıyafetler</span>, senin tarzını ve güzelliğini vurguluyor. 
+            <span class="message-emoji">👗👚</span>
+        </p>
+        <p class="message-content">
+            <span class="message-highlight">Zeytin ve gül</span>, barışmamız için küçük bir adım. 
+            <span class="message-emoji">🫒🌹</span>
+        </p>
+        <p class="message-content">
+            Ve son olarak, gözlerin için endişelendiğimi bilmeni istedim. 
+            <span class="message-emoji">❤️👀</span>
+        </p>
+        <p class="message-content">
+            Umarım bu hediyeler, sana olan sevgimi ve özrümü ifade edebilir.
+        </p>
+    </div>
+
     <div class="gift-container" id="gifts"></div>
     <button id="finalButton">Son Sürpriz</button>
     <img id="finalImage" src="son_fotograf.jpg" alt="Son fotoğraf">
