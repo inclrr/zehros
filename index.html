@@ -66,6 +66,30 @@
             display: none;
             z-index: 1000;
         }
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            z-index: 1001;
+            display: none;
+            max-width: 80%;
+        }
+        .message-box h2 {
+            color: #e74c3c;
+            margin-top: 0;
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -74,6 +98,12 @@
     <div class="gift-container" id="gifts"></div>
     <button id="finalButton">Son Sürpriz</button>
     <img id="finalImage" src="son_fotograf.jpg" alt="Son fotoğraf" onclick="this.style.display='none';">
+
+    <div id="messageBox" class="message-box">
+        <span class="close-button" onclick="closeMessage()">&times;</span>
+        <h2>Burki'nin Mesajı</h2>
+        <p id="messageContent"></p>
+    </div>
 
     <script>
         const gifts = [
@@ -85,13 +115,25 @@
         ];
 
         const giftsContainer = document.getElementById('gifts');
+        const messageBox = document.getElementById('messageBox');
+        const messageContent = document.getElementById('messageContent');
+
         gifts.forEach(gift => {
             const giftElement = document.createElement('div');
             giftElement.className = 'gift';
             giftElement.innerHTML = `<h3>${gift.name}</h3>`;
-            giftElement.onclick = () => alert(gift.description);
+            giftElement.onclick = () => showMessage(gift.description);
             giftsContainer.appendChild(giftElement);
         });
+
+        function showMessage(message) {
+            messageContent.textContent = message;
+            messageBox.style.display = 'block';
+        }
+
+        function closeMessage() {
+            messageBox.style.display = 'none';
+        }
 
         const finalButton = document.getElementById('finalButton');
         const finalImage = document.getElementById('finalImage');
