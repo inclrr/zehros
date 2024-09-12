@@ -78,17 +78,16 @@
             z-index: 1001;
             display: none;
             max-width: 80%;
+            width: 300px;
         }
         .message-box h2 {
             color: #e74c3c;
             margin-top: 0;
+            font-size: 1.5em;
         }
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 20px;
+        .message-box p {
+            font-size: 1em;
+            margin-bottom: 0;
         }
     </style>
 </head>
@@ -100,7 +99,6 @@
     <img id="finalImage" src="son_fotograf.jpg" alt="Son fotoğraf" onclick="this.style.display='none';">
 
     <div id="messageBox" class="message-box">
-        <span class="close-button" onclick="closeMessage()">&times;</span>
         <h2>Burki'nin Mesajı</h2>
         <p id="messageContent"></p>
     </div>
@@ -129,16 +127,16 @@
         function showMessage(message) {
             messageContent.textContent = message;
             messageBox.style.display = 'block';
-        }
-
-        function closeMessage() {
-            messageBox.style.display = 'none';
+            setTimeout(() => {
+                messageBox.style.display = 'none';
+            }, 3000); // 3 saniye sonra otomatik kapanır
         }
 
         const finalButton = document.getElementById('finalButton');
         const finalImage = document.getElementById('finalImage');
         
         finalButton.onclick = () => {
+            messageBox.style.display = 'none'; // Mesaj kutusunu kapat
             finalImage.style.display = 'block';
         };
     </script>
